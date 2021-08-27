@@ -47,28 +47,9 @@ function TabPanel(props) {
     },
   }));
   
-  export default function Repo() {
-    let sections = [
-      {
-        seccion:"General"
-      },
-      {
-        seccion:"Tickets"
-      },
-      {
-        seccion:"Movimientos"
-      },
-      {
-        seccion:"Inventarios"
-      },
-      {
-        seccion:"Clientes"
-      },
-      {
-        seccion:"Frecuencia y Afluencia"
-      }
+  export default function Repo({sect}) {
 
-  ]
+    let sections=sect;
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
   

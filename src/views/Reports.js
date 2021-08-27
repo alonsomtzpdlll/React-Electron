@@ -5,12 +5,32 @@ import Repo from '../components/Repo';
 
 
 const Reports = () =>{
+    let sections = [
+        {
+          seccion:"General"
+        },
+        {
+          seccion:"Tickets"
+        },
+        {
+          seccion:"Movimientos"
+        },
+        {
+          seccion:"Inventarios"
+        },
+        {
+          seccion:"Clientes"
+        },
+        {
+          seccion:"Frecuencia y Afluencia"
+        }
+    ]
 
    return(
         <div>
         <Titulos titulo="Reportes"/>
         <CardT t={
-            <Repo/>
+            <Repo sect={sections}/>
         }/>
         </div>
     );
