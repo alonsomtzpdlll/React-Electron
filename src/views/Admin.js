@@ -1,14 +1,42 @@
 import Titulos from '../components/Titulos';
-import CardT from '../components/CardT'; 
-import { Button } from '@material-ui/core';
-
 
 const Admin = () =>{
    
+    let sections=[
+        {
+            seccion:"Giros de Negocio"
+          },
+          {
+            seccion:"Productos"
+          },
+          {
+            seccion:"Servicios Extras"
+          },
+          {
+            seccion:"Inventarios"
+          },
+          {
+            seccion:"Personal"
+          },
+          {
+            seccion:"Clientes"
+          },{
+            seccion:"Cuentas Corporativas"
+          },
+          {
+            seccion:"Proveedores"
+          },
+          {
+            seccion:"Documentos"
+          },
+          {
+            seccion:"Motivos de cancelacion"
+          }
+    ]
     return(
         <div>
         <Titulos titulo="Admin"/>
-        <CardT t={<Button variant="contained" color="primary" >color</Button>} />
+        {/*<CardT t={<Repo sect={sections}/>} />*/}
         </div>
     );
 }

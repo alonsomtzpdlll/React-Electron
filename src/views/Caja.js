@@ -3,7 +3,9 @@ import { Grid,TextField,Button,Typography } from '@material-ui/core';
 import CardT from '../components/CardT';
 import Titulos from '../components/Titulos';
 import { makeStyles } from '@material-ui/core/styles';
- 
+import Movimientoscajach from '../modals/Movimientoscajach';
+import CorteCajaDia from '../modals/CorteCajaDia';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     ...theme.typography.button,
@@ -13,7 +15,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Caja = () => {
-
+  const [cach,setcach]=useState(false);
+  const [CaDi,setCaDi]=useState(false);
   const classes = useStyles();
 
   const[act,setact]=useState(0);
@@ -39,7 +42,6 @@ const Caja = () => {
         </Grid>
         </>
         } 
-      
        t2={
          <>
         <Grid container direction="column" justifyContent="center" alignItems="center">
@@ -58,7 +60,8 @@ const Caja = () => {
         </Grid>
 
         <Grid container direction="column" alignItems="center" item xs={12}>
-        <Button variant="contained" color="primary">Ver a detalle</Button>
+        <Button variant="contained" onClick={()=>setcach(true)} color="primary">Ver a detalle</Button>
+        <Movimientoscajach sta={cach} handler={setcach}/>
         </Grid>
 
         </Grid>
@@ -66,14 +69,15 @@ const Caja = () => {
         </> 
         }  
       >
-
        </CardT>
        </Grid>
 
        <Grid item xs={3} sm={3}>
-       <CardT product="Cambio y cierre de turno">
+       <CardT t="Cambio y cierre de turno">
        </CardT>
        </Grid>
+
+       
        <Grid item xs={3} sm={3}>
        <CardT product="Corte de caja diario" 
        t={
@@ -81,7 +85,7 @@ const Caja = () => {
        <Grid container direction="column" alignItems="center" xs={12}>
        <Grid item xs={12}>
         <Typography variant="subtitle1" gutterBottom>Ventas Totales</Typography>
-        <div className={classes.root}>{act===0 ? ("$"+act) :"$0."}</div>      
+        <div className={classes.root}>{"$0."}</div>      
         </Grid>
         <Grid  item xs={12}>
         <Typography variant="subtitle1" gutterBottom>Dinero en Caja</Typography>
@@ -96,7 +100,8 @@ const Caja = () => {
         <div className={classes.root}>{"$0."}</div>
         </Grid>
         <Grid container direction="row" justifyContent="space-evenly" alignItems="center" item >
-        <Button variant="contained" onClick={()=>setact(act+1)} color="primary">Detalle</Button>
+        <Button variant="contained" onClick={()=>setCaDi(true)} color="primary">Detalle</Button>
+        <CorteCajaDia sta={CaDi} handler={setCaDi}/>
         <Button variant="contained" style={{ backgroundColor: "#5cb85c",}} >Cierre</Button>
         </Grid>
         </Grid>

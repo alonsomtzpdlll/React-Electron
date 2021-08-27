@@ -50,6 +50,7 @@ function TabPanel(props) {
   export default function Repo({sect}) {
 
     let sections=sect;
+    console.log(sect.length)
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
   
