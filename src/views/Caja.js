@@ -85,19 +85,19 @@ const Caja = () => {
        <Grid container direction="column" alignItems="center" xs={12}>
        <Grid item xs={12}>
         <Typography variant="subtitle1" gutterBottom>Ventas Totales</Typography>
-        <div className={classes.root}>{"$0."}</div>      
+        <div className={classes.root}>{act===0?"$0.":(`$`,act)}</div>      
         </Grid>
         <Grid  item xs={12}>
         <Typography variant="subtitle1" gutterBottom>Dinero en Caja</Typography>
-        <div className={classes.root}>{"$0."}</div>
+        <div className={classes.root}>{act===0?"$0.":(`$`,act)}</div>
         </Grid>
         <Grid item xs={12}>
         <Typography variant="subtitle1" gutterBottom>Ganancia</Typography>
-        <div className={classes.root}>{"$0."}</div>
+        <div className={classes.root}>{act===0?"$0.":(`$`,act)}</div>
         </Grid>
         <Grid item xs={12}>
         <Typography variant="subtitle1" gutterBottom>Ventas</Typography>
-        <div className={classes.root}>{"$0."}</div>
+        <div className={classes.root}>{act===0?"$0.":(`$`,act)}</div>
         </Grid>
         <Grid container direction="row" justifyContent="space-evenly" alignItems="center" item >
         <Button variant="contained" onClick={()=>setCaDi(true)} color="primary">Detalle</Button>
@@ -116,22 +116,22 @@ const Caja = () => {
      <Grid container direction="column" alignItems="center" xs={12}>
        <Grid item xs={12}>
         <Typography variant="subtitle1" gutterBottom>Ventas Totales</Typography>
-        <div className={classes.root}>{"$0."}</div>      
+        <div className={classes.root}>{act===0?"$0.":(`$`,act)}</div>      
         </Grid>
         <Grid  item xs={12}>
         <Typography variant="subtitle1" gutterBottom>Dinero en Caja</Typography>
-        <div className={classes.root}>{"$0."}</div>
+        <div className={classes.root}>{act===0?"$0.":(`$`,act)}</div>
         </Grid>
         <Grid item xs={12}>
         <Typography variant="subtitle1" gutterBottom>Ganancia</Typography>
-        <div className={classes.root}>{"$0."}</div>
+        <div className={classes.root}>{act===0?"$0.":(`$`,act)}</div>
         </Grid>
         <Grid item xs={12}>
         <Typography variant="subtitle1" gutterBottom>Ventas</Typography>
-        <div className={classes.root}>{"$0."}</div>
+        <div className={classes.root}>{act===0?"$0.":(`$`,act)}</div>
         </Grid>
         <Grid container direction="row" justifyContent="space-evenly" alignItems="center" item >
-        <Button variant="contained" color="primary">Detalle</Button>
+        <Button variant="contained" onClick={()=>setact(act+1)}color="primary">Detalle</Button>
         <Button variant="contained" style={{ backgroundColor: "#5cb85c",}} >Cierre</Button>
         </Grid>
         </Grid>

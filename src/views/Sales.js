@@ -127,6 +127,7 @@ const Punto = () => {
                     size="small"
                     variant="contained"
                     style={{ backgroundColor: "#5cb85c" }}
+                    onClick={()=>setSub(sub+1)}
                   >
                     Cobrar
                   </Button>

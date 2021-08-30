@@ -1,8 +1,8 @@
-import Titulos from '../components/Titulos';
+import Subti from '../components/Subti';
 
 export default function Rclien(){
 
   return(
-      <Titulos titulo="Clientes"/>
+      <Subti text="Clientes"/>
     )
 }

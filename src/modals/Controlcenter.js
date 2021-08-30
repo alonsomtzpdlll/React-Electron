@@ -45,12 +45,12 @@ export default function Controlcenter({ sta, handler }) {
         </AppBar>
         <List>
           <ListItem button>
-            <img src={Lavadora} height={40} />
+            <img src={Lavadora} alt="Icon Lavadora" height={40} />
             <ListItemText primary="Lavadoras" />
           </ListItem>
           <Divider />
           <ListItem button>
-            <img src={Secadora} height={40} />
+            <img src={Secadora} alt="Icon Secadoras" height={40} />
             <ListItemText primary="Secadoras" />
           </ListItem>
         </List>

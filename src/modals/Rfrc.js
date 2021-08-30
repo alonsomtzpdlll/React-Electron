@@ -1,8 +1,8 @@
-import Titulos from '../components/Titulos';
+import Subti from '../components/Subti';
 
 export default function Rfrc(){
 
   return(
-      <Titulos titulo="Frecuencia y afluencia "/>
+      <Subti text="Frecuencia y afluencia "/>
     )
 }

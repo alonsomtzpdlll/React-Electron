@@ -2,8 +2,6 @@ import Titulos from '../components/Titulos';
 import Button from "@material-ui/core/Button";
 import { useState,Component } from 'react';
 import NotifySuc from '../modals/NotifySuc';
-import NotifyErr from '../modals/NotifyErr';
-import NotifyInfo from '../modals/NotifyInfo';
 import CardT from '../components/CardT';
 import axios from 'axios';
 
@@ -93,15 +91,13 @@ let ConfigSections=[
   }
 ]
 
-  const[notify,setnotify]=useState(false);
   const [open, setOpen] = useState(false);
   return(
-    <div>
+   <>
       <Titulos titulo="Admin"/>
       <CardT t2={<Button  variant="contained" color="primary" onClick={()=>setOpen(true)}>Notify</Button>} t3={<Infos/>}/>
       <NotifySuc sta={open} handl={setOpen} msg={"info"}/>
- 
       {/*<CardT t={<Repo sect={sections}/>} />*/}
-      </div>
+     </> 
     )
 }

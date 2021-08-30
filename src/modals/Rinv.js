@@ -1,8 +1,8 @@
-import Titulos from '../components/Titulos';
+import Subti from '../components/Subti';
 
 export default function Rinv(){
 
   return(
-      <Titulos titulo="Inventarios"/>
+      <Subti text="Inventarios"/>
     )
 }

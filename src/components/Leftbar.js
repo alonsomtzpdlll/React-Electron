@@ -34,9 +34,7 @@ import Punico from '../icons/punto-venta.svg';
 import Tickico from '../icons/ticket.svg';
 import Cargtico from '../icons/carga-trabajo.svg';
 import adminico from '../icons/administracion.svg';
-import Dialog from '@material-ui/core/Dialog';
 import Controlcenter from "../modals/Controlcenter";
-import Slide from '@material-ui/core/Slide';
 
 
 const LeftBar = (props) => {
@@ -49,32 +47,32 @@ const LeftBar = (props) => {
   let sections = [
     {
       Title: "Punto de Venta",
-      icon: <img src={Punico} height="20"/>,
+      icon: <img src={Punico} alt="Icon Punto de venta" height="20"/>,
       onClick: () => history.push("/"),
     },
     {
       Title: "Corte de caja",
-      icon:  <img src={Cargtico} height="20"/>,
+      icon:  <img src={Cargtico} alt="Icon Corte de caja" height="20"/>,
       onClick: () => history.push("/Caja"),
     },
     {
       Title: "Carga de Trabajo",
-      icon:  <img src={Corico} height="20"/>,
+      icon:  <img src={Corico} alt="Icon Cargad de trabajo" height="20"/>,
       onClick: () => history.push("/CargaTrabajo"),
     },
     {
       Title: "Tickets",
-      icon:  <img src={Tickico} height="20"/>,
+      icon:  <img src={Tickico} alt="Icon Tickets" height="20"/>,
       onClick: () => history.push("/Tickets"),
     },
     {
       Title: "Reportes",
-      icon:<img src={Repico} height="20"/>,
+      icon:<img src={Repico} alt="Icon Reportes" height="20"/>,
       onClick: () => history.push("/Reports"),
     },
     {
       Title: "Admin",
-      icon:<img src={adminico} height="20"/>,
+      icon:<img src={adminico} alt="Icon Admin" height="20"/>,
       onClick: () => history.push("/Admin"),
     },
   ];
@@ -95,16 +93,13 @@ const LeftBar = (props) => {
   const ctrlOpen = () =>{
     setctrlMod(true)
   }
-  const ctrlClos = () =>{
-    setctrlMod(false)
-  }
 
   return (
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
         position="fixed"
-        color="transparent"
+        color="inhert"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}
@@ -120,7 +115,7 @@ const LeftBar = (props) => {
             >
               <MenuIcon />
             </IconButton>
-            <img src={logo} height="60"/>
+            <img src={logo} alt="Logo Inovuc" height="60"/>
           </Box>
           <FormGroup>
             
@@ -160,11 +155,11 @@ const LeftBar = (props) => {
         </div>
 
         <List>
-          {sections.map((item, index) => {
+          {sections.map((item, key) => {
             const { Title, onClick,icon } = item;
             return (
               <>
-                <ListItem button key={index} onClick={onClick}>
+                <ListItem button key={key} onClick={onClick}>
                   {icon}
                   {Title}
                 </ListItem>

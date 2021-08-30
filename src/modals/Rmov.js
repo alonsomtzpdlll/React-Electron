@@ -1,8 +1,8 @@
-import Titulos from '../components/Titulos';
+import Subti from '../components/Subti';
 
 export default function Rmov(){
 
   return(
-      <Titulos titulo="Movimientos"/>
+      <Subti text="Movimientos"/>
     )
 }
