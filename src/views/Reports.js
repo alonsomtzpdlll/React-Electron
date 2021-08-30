@@ -2,27 +2,40 @@ import React from 'react';
 import CardT from '../components/CardT';
 import Titulos from '../components/Titulos';
 import Repo from '../components/Repo';
+import Rgen from '../modals/Rgen';
+import Rtick from '../modals/Rtick';
+import Rmov from '../modals/Rmov';
+import Rinv from '../modals/Rinv';
+import Rclien from '../modals/RClien';
+import Rfrc from '../modals/Rfrc';
 
 
-const Reports = () =>{
+const Reports = (props) =>{
+
     let sections = [
         {
-          seccion:"General"
+          seccion:"General",
+          router:<Rgen/>
         },
         {
-          seccion:"Tickets"
+          seccion:"Tickets",
+          router:<Rtick/>
         },
         {
-          seccion:"Movimientos"
+          seccion:"Movimientos",
+          router:<Rmov/>
         },
         {
-          seccion:"Inventarios"
+          seccion:"Inventarios",
+          router:<Rinv/>
         },
         {
-          seccion:"Clientes"
+          seccion:"Clientes",
+          router:<Rclien/>
         },
         {
-          seccion:"Frecuencia y Afluencia"
+          seccion:"Frecuencia y Afluencia",
+          router:<Rfrc/>
         }
     ]
 
@@ -30,7 +43,7 @@ const Reports = () =>{
         <div>
         <Titulos titulo="Reportes"/>
         <CardT t={
-            <Repo sect={sections}/>
+            <Repo sect={sections} />
         }/>
         </div>
     );

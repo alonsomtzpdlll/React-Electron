@@ -75,7 +75,7 @@ function TabPanel(props) {
         {sections.map((item,index) => {
               const {seccion} = item;
                return(
-               <TabPanel value={value} index={index}>{seccion}</TabPanel>
+               <TabPanel value={value} index={index}>{sections[index].router}</TabPanel>
                );})}
       </div>
     );
