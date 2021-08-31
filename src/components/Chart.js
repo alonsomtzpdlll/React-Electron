@@ -6,7 +6,7 @@ const data = {
   datasets: [
     {
       label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
+      data: [12, 19, 3, 5, 2, 3,12,23],
       fill: false,
       backgroundColor: 'rgb(255, 99, 132)',
       borderColor: 'rgba(255, 99, 132, 0.2)',
@@ -28,7 +28,9 @@ const options = {
 
 const Chart = () => (
   <>
-    <Line data={data} options={options} />
+ 
+      <Line data={data} options={options} />
+     
   </>
 );
 

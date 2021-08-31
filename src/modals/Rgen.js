@@ -36,86 +36,127 @@ export default function Rgen() {
   return (
     <>
       <Subti text="General" />
-      <Grid
-        container
-        direction="row"
-        spacing={1}
-        justifyContent="flex-start"
-        alignItems="flex-start"
-      >
-        <Typography variant="subtitle1">Por dia</Typography>
-        <form className={classes.container} noValidate>
-          <TextField
-            id="date"
-            type="date"
-            defaultValue="2017-05-24"
-            className={classes.textField}
-            InputLabelProps={{
-              shrink: true,
-            }}
-          />
+      <Grid container spacing={2}>
+
+      <Grid item xs={3}>
+        <Grid container direction="column" justifyContent="space-between">
+
+          <Grid style={{paddingBottom:10}} item>
+          <CardT t={
+          <>
+          <Typography variant="subtitle1">Por dia</Typography>
+          <form className={classes.container} noValidate>
+            <TextField
+              id="date"
+              type="date"
+              defaultValue="2017-05-24"
+              className={classes.textField}
+              InputLabelProps={{
+                shrink: true,
+              }}/>
 
           <Select
-            style={{ width: 200 }}
+            style={{ width: 120 }}
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={age}
-            onChange={handleChange}
-          >
+            onChange={handleChange}>
             <MenuItem value={10}>Ten</MenuItem>
             <MenuItem value={20}>Twenty</MenuItem>
             <MenuItem value={30}>Thirty</MenuItem>
           </Select>
         </form>
-      </Grid>
-      <br></br>
-      <Grid container spacing={2}>
-        <Grid item xs={7}>
-          <CardT t2={<Chart />}></CardT>
+        </>
+      }/>
+    </Grid>
+
+    <Grid item>
+      <CardT t={
+        <>
+        <Typography variant="subtitle1">Global</Typography>
+        <form className={classes.container} noValidate>
+        <Grid container direction="column">
+          <Select style={{ width: 250 }} labelId="demo-simple-select-label" id="demo-simple-select" value={age} onChange={handleChange}>
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+          <Select style={{ width: 250 }} labelId="demo-simple-select-label" id="demo-simple-select" value={age} onChange={handleChange}>
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+          <Select style={{ width: 250 }} labelId="demo-simple-select-label" id="demo-simple-select" value={age} onChange={handleChange}>
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+          <Select style={{ width: 250 }} labelId="demo-simple-select-label" id="demo-simple-select" value={age} onChange={handleChange}>
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+          <Select style={{ width: 250 }} labelId="demo-simple-select-label" id="demo-simple-select" value={age} onChange={handleChange}>
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+          </Grid>
+        </form>
+        </>
+        }/>
         </Grid>
-        <Grid item xs={3}>
+        </Grid>
+      </Grid>
+
+      <Grid item xs={7}>
+      <CardT t2={<Chart />}/>
+      </Grid>
+
+
+        <Grid item xs={2}>
           <CardT
             product="Corte de caja mensual"
             t2={
               <>
-                <Grid container direction="column" alignItems="center" xs={12}>
-                  <Grid item xs={12}>
-                    <Typography variant="subtitle1" gutterBottom>
+                <Grid container direction="column" justifyContent="center" alignItems="center">
+                  <Grid item>
+                    <Typography variant="subtitle1">
                       Ventas
                     </Typography>
                     <div>{"$0."}</div>
                   </Grid>
-                  <Grid item xs={12}>
-                    <Typography variant="subtitle1" gutterBottom>
+                  <Grid item>
+                    <Typography variant="subtitle1">
                       Dinero Ingreso
                     </Typography>
                     <div>{"$0."}</div>
                   </Grid>
-                  <Grid item xs={12}>
-                    <Typography variant="subtitle1" gutterBottom>
+                  <Grid item>
+                    <Typography variant="subtitle1">
                       Tickets
                     </Typography>
                     <div>{"$0."}</div>
                   </Grid>
-                  <Grid item xs={12}>
-                    <Typography variant="subtitle1" gutterBottom>
+                  <Grid item >
+                    <Typography variant="subtitle1">
                       Pendientes
                     </Typography>
                     <div>{"$0."}</div>
                   </Grid>
-                  <Grid
-                    container
-                    direction="row"
-                    justifyContent="space-evenly"
-                    alignItems="center"
-                    item
-                  ></Grid>
+                  <Grid item>
+                    <Typography variant="subtitle1">
+                      Pagado 
+                    </Typography>
+                    <div>{"$0."}</div>
+                  </Grid>
                 </Grid>
               </>
             }
           ></CardT>
         </Grid>
       </Grid>
+      
     </>
   );
 }

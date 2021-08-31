@@ -36,7 +36,7 @@ const Reports = (props) =>{
         {
           seccion:"Frecuencia y Afluencia",
           router:<Rfrc/>
-        }
+        },
     ]
 
    return(

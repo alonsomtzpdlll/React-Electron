@@ -50,7 +50,7 @@ function TabPanel(props) {
   export default function Repo({sect}) {
 
     let sections=sect;
-    console.log(sect.length)
+    const si=sect.length
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
   
@@ -60,8 +60,8 @@ function TabPanel(props) {
   
     return (
       <div className={classes.root}>
-        <AppBar position="static" color="inhert">
-          <Tabs value={value} onChange={handleChange} centered aria-label="simple tabs example">
+        <AppBar position="static" color="inhert" >
+          <Tabs value={value} variant={ si > 6 ? "scrollable" : false} onChange={handleChange} centered aria-label="simple tabs example">
             {sections.map((item,index) => {
               const {seccion} = item;
               

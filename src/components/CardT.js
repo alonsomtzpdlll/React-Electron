@@ -27,8 +27,8 @@ const cardT = ({t,t1,t2,t3}) => {
     <Box boxShadow={5}>
     <Card className={classes.root} variant="outlined" >
         {t ? <CardContent> <Typography color="textSecondary" gutterBottom> {t} </Typography></CardContent>:false}
-        {t1 ? <CardContent> <Grid container spacing={1}> {t1} </Grid> </CardContent>  : false }
-        {t2 ? <CardContent> <Grid container spacing={1}> {t2} </Grid> </CardContent> : false }
+        {t1 ? <CardContent> {t1} </CardContent>: false }
+        {t2 ? <CardContent> {t2}</CardContent> : false }
         {t3 ? <CardContent> <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start" spacing={0}> {t3} </Grid> </CardContent> : false }      
     </Card>
     </Box>
