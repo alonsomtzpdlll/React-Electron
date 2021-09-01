@@ -4,19 +4,22 @@ import Product from "../components/Product";
 import Titulos from "../components/Titulos";
 import Cart from '../components/Cart';
 
+function tot({toBuy}) {
+  
+}
 const Punto = () => {
-  const [sub, setSub] = useState(0);
+  const [toBuy,setToBuy]=useState([]);
 
   return (
     <>
       <Titulos titulo="Punto de Venta" />
       <Grid container spacing={1}>
         <Grid item xs={6}>
-         <Product/>
+         <Product toBuy={toBuy} setToBuy={setToBuy}/>
         </Grid>
 
         <Grid item xs={6}>
-        <Cart Sub={sub} setSub={setSub}/>
+        <Cart toBuy={toBuy} setToBuy={setToBuy}/>
         </Grid>
       </Grid>
     </>

@@ -99,7 +99,7 @@ const LeftBar = (props) => {
       <CssBaseline />
       <AppBar
         position="fixed"
-        color="inhert"
+        color="inherit"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}

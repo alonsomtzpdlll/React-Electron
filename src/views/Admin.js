@@ -96,7 +96,7 @@ let ConfigSections=[
    <>
       <Titulos titulo="Admin"/>
       <CardT t2={<Button  variant="contained" color="primary" onClick={()=>setOpen(true)}>Notify</Button>} t3={<Infos/>}/>
-      <NotifySuc sta={open} handl={setOpen} msg={"info"}/>
+      <NotifySuc sta={open} handl={setOpen} ConfigSections={ConfigSections} ADMINsections={ADMINsections} msg={"info"}/>
       {/*<CardT t={<Repo sect={sections}/>} />*/}
      </> 
     )
