@@ -26,7 +26,7 @@ const options = {
   },
 };
 
-const Chart = () => (
+const ChartLi = () => (
   <>
  
       <Line data={data} options={options} />
@@ -34,4 +34,4 @@ const Chart = () => (
   </>
 );
 
-export default Chart;
+export default ChartLi;

@@ -33,7 +33,7 @@ export default function Tabletem() {
   });
 
   return (
-    <div style={{ height: 350, width: '100%' }}>
+    <div style={{ height: '100%', width: '100%' }}>
       <DataGrid
         pagination
         pageSize={5}

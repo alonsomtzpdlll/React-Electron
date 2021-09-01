@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import CardT from "../components/CardT";
 import TextField from "@material-ui/core/TextField";
 import { Typography, Grid, Select, MenuItem } from "@material-ui/core";
-import Chart from "../components/Chart";
+import Chart from "../components/ChartLi";
 
 const useStyles = makeStyles((theme) => ({
   container: {

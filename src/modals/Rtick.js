@@ -2,7 +2,7 @@ import Subti from '../components/Subti';
 import { Typography,Grid,TextField } from '@material-ui/core';
 import CardT from '../components/CardT';
 import { makeStyles } from '@material-ui/core/styles';
-import Chart from '../components/Chart';
+import ChartLi from '../components/ChartLi';
 import Tabletem from '../components/Tabletem';
 const useStyles = makeStyles((theme) => ({
   textField: {
@@ -58,7 +58,7 @@ export default function Rtick(){
           ></CardT>
         </Grid>
         <Grid item xs={6}>
-          <CardT t2={<Chart />}/>
+          <CardT t2={<ChartLi />}/>
         </Grid>
         <Grid item xs={12} >
          <CardT t={<Tabletem/>}/>
