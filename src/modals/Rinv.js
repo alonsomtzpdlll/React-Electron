@@ -12,7 +12,7 @@ export default function Rinv(){
           <CardT t2={<ChartLi />}/>
         </Grid>
       <Grid item xs={8} >
-         <CardT t={<Tabletem/>}/>
+       
         </Grid>
       </Grid>
       </>

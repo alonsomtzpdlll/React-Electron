@@ -10,34 +10,36 @@ import Rclien from '../modals/RClien';
 import Rfrc from '../modals/Rfrc';
 
 
-const Reports = (props) =>{
+const Reports = () =>{
 
     let sections = [
-        {
-          seccion:"General",
-          router:<Rgen/>
-        },
-        {
-          seccion:"Tickets",
-          router:<Rtick/>
-        },
-        {
-          seccion:"Movimientos",
-          router:<Rmov/>
-        },
-        {
-          seccion:"Inventarios",
-          router:<Rinv/>
-        },
-        {
-          seccion:"Clientes",
-          router:<Rclien/>
-        },
-        {
-          seccion:"Frecuencia y Afluencia",
-          router:<Rfrc/>
-        },
+      {
+        seccion:"General",
+        router:<Rgen/>
+      },
+      {
+        seccion:"Tickets",
+        router:<Rtick/>
+      },
+      {
+        seccion:"Movimientos",
+        router:<Rmov/>
+      },
+      {
+        seccion:"Inventarios",
+        router:<Rinv/>
+      },
+      {
+        seccion:"Clientes",
+        router:<Rclien/>
+      },
+      {
+        seccion:"Frecuencia y Afluencia",
+        router:<Rfrc/>
+      }
+      
     ]
+    console.log(sections)
 
    return(
         <div>

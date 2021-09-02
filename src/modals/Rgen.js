@@ -56,7 +56,7 @@ export default function Rgen() {
               }}/>
 
           <Select
-            style={{ width: 120 }}
+            style={{ width: '100%' }}
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={age}
@@ -76,27 +76,27 @@ export default function Rgen() {
         <Typography variant="subtitle1">Global</Typography>
         <form className={classes.container} noValidate>
         <Grid container direction="column">
-          <Select style={{ width: 250 }} labelId="demo-simple-select-label" id="demo-simple-select" value={age} onChange={handleChange}>
+          <Select style={{ width: '100%' }} labelId="demo-simple-select-label" id="demo-simple-select" value={age} onChange={handleChange}>
             <MenuItem value={10}>Ten</MenuItem>
             <MenuItem value={20}>Twenty</MenuItem>
             <MenuItem value={30}>Thirty</MenuItem>
           </Select>
-          <Select style={{ width: 250 }} labelId="demo-simple-select-label" id="demo-simple-select" value={age} onChange={handleChange}>
+          <Select style={{ width: '100%' }} labelId="demo-simple-select-label" id="demo-simple-select" value={age} onChange={handleChange}>
             <MenuItem value={10}>Ten</MenuItem>
             <MenuItem value={20}>Twenty</MenuItem>
             <MenuItem value={30}>Thirty</MenuItem>
           </Select>
-          <Select style={{ width: 250 }} labelId="demo-simple-select-label" id="demo-simple-select" value={age} onChange={handleChange}>
+          <Select style={{ width: '100%' }} labelId="demo-simple-select-label" id="demo-simple-select" value={age} onChange={handleChange}>
             <MenuItem value={10}>Ten</MenuItem>
             <MenuItem value={20}>Twenty</MenuItem>
             <MenuItem value={30}>Thirty</MenuItem>
           </Select>
-          <Select style={{ width: 250 }} labelId="demo-simple-select-label" id="demo-simple-select" value={age} onChange={handleChange}>
+          <Select style={{ width: '100%' }} labelId="demo-simple-select-label" id="demo-simple-select" value={age} onChange={handleChange}>
             <MenuItem value={10}>Ten</MenuItem>
             <MenuItem value={20}>Twenty</MenuItem>
             <MenuItem value={30}>Thirty</MenuItem>
           </Select>
-          <Select style={{ width: 250 }} labelId="demo-simple-select-label" id="demo-simple-select" value={age} onChange={handleChange}>
+          <Select style={{ width: '100%' }} labelId="demo-simple-select-label" id="demo-simple-select" value={age} onChange={handleChange}>
             <MenuItem value={10}>Ten</MenuItem>
             <MenuItem value={20}>Twenty</MenuItem>
             <MenuItem value={30}>Thirty</MenuItem>

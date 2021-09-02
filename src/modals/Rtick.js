@@ -1,3 +1,4 @@
+import React from 'react'
 import Subti from '../components/Subti';
 import { Typography,Grid,TextField } from '@material-ui/core';
 import CardT from '../components/CardT';
@@ -61,7 +62,7 @@ export default function Rtick(){
           <CardT t2={<ChartLi />}/>
         </Grid>
         <Grid item xs={12} >
-         <CardT t={<Tabletem/>}/>
+        
         </Grid>
       </Grid>
     </>

@@ -1,25 +1,30 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import CardT from "./CardT";
 import {
   InputBase,
   Grid,
-  TextField,
   Typography,
   Button,
 } from "@material-ui/core";
+import NotifyErr from '../modals/NotifyErr';
 import Tabletem from "./Tabletem";
 
 const Cart = ({ toBuy, setToBuy }) => {
+  const [open, setOpen] = useState(false);
   const [total, setTotal] = useState(0);
   const columns = [
     { field: "name", headerName: "Nombre", width: 300 },
     { field: "price", headerName: "Precio", width: 150 },
-    { field: '', headerName: 'Accion',width: 119,
+    { field: '', headerName: '',width: 119,
       renderCell: (params) => {
-          return <Button variant="contained" size="small" color="primary" onClick={()=> toBuy.splice((params.row.id),1)} >Agregar</Button>;
+          return <Button variant="contained" size="small" color="primary" onClick={()=> {
+            toBuy=toBuy.filter(value => value.id !== params.row.id);
+            setToBuy(toBuy);
+          } } >Quitar</Button>;
       }
     }
   ];
+
 
   return (
     <>
@@ -84,8 +89,7 @@ const Cart = ({ toBuy, setToBuy }) => {
                     size="small"
                     variant="contained"
                     style={{ backgroundColor: "#d9534f" }}
-                    onClick={() => setToBuy([])}
-                  >
+                    onClick={() => {setToBuy([]);setOpen(true);}}>
                     Cancelar
                   </Button>
                 </Grid>
@@ -94,6 +98,7 @@ const Cart = ({ toBuy, setToBuy }) => {
           </Grid>
         </Grid>
       </Grid>
+      <NotifyErr sta={open} handl={setOpen} msg={"Carrito limpio"}/>
     </>
   );
 };
