@@ -1,50 +1,94 @@
-import { useState} from "react";
+import { useState } from "react";
 import CardT from "./CardT";
-import {
-  InputBase,
-  Grid,
-  Typography,
-  Button,
-} from "@material-ui/core";
-import NotifyErr from '../modals/NotifyErr';
+import { InputBase, Grid, Typography, Button, Paper } from "@material-ui/core";
+import NotifyErr from "../modals/NotifyErr";
 import Tabletem from "./Tabletem";
+import { makeStyles } from "@material-ui/styles";
 
-const Cart = ({ toBuy, setToBuy }) => {
+const useStyles = makeStyles((theme) => ({
+  root: {
+    padding: "2px 18px",
+    display: "flex",
+    alignItems: "center",
+    width: 400,
+  },
+  focused: {
+    borderColor: "2px solid green",
+    borderWidth: 8,
+  },
+}));
+
+const Cart = ({ toBuy, setToBuy,total,setTotal }) => {
+  const classes = useStyles();
+  const [cant,setCant]=useState(0);
   const [open, setOpen] = useState(false);
-  const [total, setTotal] = useState(0);
+  const [symbolsArr] = useState(["e", "E", "+", "-", "."]);
   const columns = [
-    { field: "name", headerName: "Nombre", width: 300 },
-    { field: "price", headerName: "Precio", width: 150 },
-    { field: '', headerName: '',width: 119,
+    { field: "name", headerName: "Nombre", width: 130 },
+    { field: "price", headerName: "Precio", width: 115 },
+    {
+      field: "",
+      headerName: "",
+      width: 195,
       renderCell: (params) => {
-          return <Button variant="contained" size="small" color="primary" onClick={()=> {
-            toBuy=toBuy.filter(value => value.id !== params.row.id);
-            setToBuy(toBuy);
-          } } >Quitar</Button>;
-      }
-    }
+        return (
+          <Grid container spacing={1}>
+          <Grid item>
+          <Button
+            variant="contained"
+            size="small"
+            color="primary"
+            onClick={() => {
+              toBuy = toBuy.filter((value) => value.id !== params.row.id);
+              setToBuy(toBuy);
+              setTotal(total-params.row.price)
+              
+            }}
+          >
+            Quitar
+          </Button>
+          </Grid>
+            <Grid item>
+            <input
+              placeholder="1"
+              type="number"
+              onKeyDown={(e) =>
+                symbolsArr.includes(e.key) && e.preventDefault()
+              }
+              min="1"
+              max="100"
+              onChange={(e)=>{setCant(parseFloat(e.target.value)+cant);console.log(cant)}}
+            />
+            </Grid>
+          </Grid>
+        );
+      },
+    },
   ];
-
 
   return (
     <>
       <Grid container direction="column" spacing={2}>
         <Grid item xs={12}>
-          <InputBase
-            inputProps={{
-              "aria-label": "search google maps",
-            }}
-            style={{ flex: 1 }}
-            placeholder="Codigo de Barras"
-          />
-        </Grid>
-
-        <Grid item xs={12}>
           <CardT
-            t2={
-              <div style={{ height: 300, width: "100%" }}>
-                <Tabletem data={toBuy} columns={columns} />
-              </div>
+            t3={
+              <>
+                <Grid container spacing={1}>
+                <Grid item xs={2}>
+                  <Typography variant="h6">Ticket</Typography>
+                  </Grid>
+                  <Grid item xs={10}>
+                    <Paper component="form" className={classes.root}>
+                      <InputBase classes={{ root: classes.root, focused: classes.focused,}} placeholder="Codigo de Barras"/>
+                    </Paper>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <div style={{ height: 300, width: "100%" }}>
+                      <Tabletem data={toBuy} columns={columns} />
+                    </div>
+                  </Grid>
+                </Grid>
+              </>
             }
           />
         </Grid>
@@ -52,18 +96,19 @@ const Cart = ({ toBuy, setToBuy }) => {
         <Grid item xs={12}>
           <Grid container direction="row" spacing={2}>
             <Grid item xs={6}>
+              {}
               <Typography>Subtotal</Typography>
-              <div>{total === 0 ? "$0." : (`$`, total)}</div>
+              <div>{total === 0 ? "$0." : (`$`+total)}</div>
             </Grid>
 
             <Grid item xs={6}>
               <Typography>IVA 16% </Typography>
-              <div>{total === 0 ? "$0." : (`$`, total)}</div>
+              <div>{total === 0 ? "$0." : (`$`+total)}</div>
             </Grid>
 
             <Grid item xs={6}>
               <Typography>Total</Typography>
-              <div>{total === 0 ? "$0." : (`$`, total)}</div>
+              <div>{total === 0 ? "$0." : (`$`+total)}</div>
             </Grid>
 
             <Grid item xs={6}>
@@ -89,7 +134,12 @@ const Cart = ({ toBuy, setToBuy }) => {
                     size="small"
                     variant="contained"
                     style={{ backgroundColor: "#d9534f" }}
-                    onClick={() => {setToBuy([]);setOpen(true);}}>
+                    onClick={() => {
+                      setToBuy([]);
+                      setOpen(true);
+                      setTotal(0)
+                    }}
+                  >
                     Cancelar
                   </Button>
                 </Grid>
@@ -98,7 +148,7 @@ const Cart = ({ toBuy, setToBuy }) => {
           </Grid>
         </Grid>
       </Grid>
-      <NotifyErr sta={open} handl={setOpen} msg={"Carrito limpio"}/>
+      <NotifyErr sta={open} handl={setOpen} msg={"Carrito limpio"} />
     </>
   );
 };

@@ -44,6 +44,9 @@ function TabPanel(props) {
     root: {
       flexGrow: 1,
       backgroundColor: theme.palette.background.paper,
+    },indicator: {
+      
+      height: "5px",
     },
   }));
   
@@ -59,7 +62,7 @@ function TabPanel(props) {
     return (
       <div className={classes.root}>
         <AppBar position="static" color="inhert" >
-          <Tabs value={value} variant="scrollable" onChange={handleChange} aria-label="simple tabs example">
+          <Tabs value={value} variant="scrollable" classes={{indicator: classes.indicator}}onChange={handleChange} aria-label="simple tabs example">
             {sect.map((item,index) => {
               const {seccion} = item;
               

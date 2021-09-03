@@ -1,5 +1,5 @@
 import Modalsty from "../components/Modalsty";
-import {IconButton,AppBar,Toolbar,ListItem,List,ListItemText,Divider,Typography}from "@material-ui/core";
+import {IconButton,AppBar,Toolbar,Card,Typography,CardContent}from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -34,7 +34,11 @@ const ModalAddProd = ({sta, handler}) =>{
                   </Typography>
                 </Toolbar>
               </AppBar>
-              
+              <Card>
+                <CardContent>
+                  <Typography>Hola</Typography>
+                </CardContent>
+              </Card>
               </>
               }
               />

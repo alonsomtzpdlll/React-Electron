@@ -29,7 +29,7 @@ export default function NotifyErr({sta,handl,msg}) {
 
   return (
     <div className={classes.root}>
-      <Snackbar open={sta} autoHideDuration={6000} onClose={handleClose}>
+      <Snackbar open={sta} autoHideDuration={900} onClose={handleClose}>
         <Alert onClose={handleClose} severity="error">
             {msg}
         </Alert>

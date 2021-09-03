@@ -80,6 +80,7 @@ return inis
   var inis=fillini(rows)
   var medi=fillmed(rows)
   var fin=fillfinal(rows)
+  
   return (
     <div>
       <Titulos titulo="Carga de Trabajo" />
