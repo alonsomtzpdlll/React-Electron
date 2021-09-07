@@ -1,13 +1,10 @@
-import React,{useState} from "react";
+import React from "react";
 import Titulos from "../components/Titulos";
 import CardT from "../components/CardT";
 import { Grid,Button } from "@material-ui/core";
 import DTabl from "../components/DTabl";
 
 const Work = () => {
-  const [ini,setini]=useState([''])
-  const [med,setmed]=useState([''])
-  const [final,setfinal]=useState([''])
 
   const rows = [
     { id: 1, Prod: '1kg Lav', Estado: 'ini'},
@@ -40,59 +37,19 @@ const Work = () => {
     },
   ];
 
-  const fillini = (rows) => {
-    var inis=[] 
-    rows.map((item)=>{
-
-    if (item.Estado==='ini'){
-      inis.push(item)
-    }
-  
-  })
-  return inis
-}
-
-const fillmed = (rows) => {
-  var inis=[] 
-  rows.map((item)=>{
-
-  if (item.Estado==='med'){
-    inis.push(item)
-  }
-
-})
-return inis
-}
-
-const fillfinal = (rows) => {
-  var inis=[] 
-  rows.map((item)=>{
-
-  if (item.Estado==='fin'){
-    inis.push(item)
-  }
-
-})
-return inis
-}
-
-
-  var inis=fillini(rows)
-  var medi=fillmed(rows)
-  var fin=fillfinal(rows)
   
   return (
     <div>
       <Titulos titulo="Carga de Trabajo" />
       <Grid container spacing={1}>
         <Grid item xs={4}>
-          <CardT product="Por procesar" t={<DTabl columns={columns} rows={inis} />} />
+          <CardT product="Por procesar" t={<DTabl columns={columns} rows={rows} />} />
         </Grid>
         <Grid item xs={4}>
-          <CardT product="Procesando" t={<DTabl columns={columns} rows={medi} />} />
+          <CardT product="Procesando" t={<DTabl columns={columns} rows={rows} />} />
         </Grid>
         <Grid item xs={4}>
-          <CardT product="Por entregar" t={<DTabl columns={columns} rows={fin} />} />
+          <CardT product="Por entregar" t={<DTabl columns={columns} rows={rows} />} />
         </Grid>
       </Grid>
     </div>

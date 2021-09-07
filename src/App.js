@@ -2,6 +2,7 @@ import "./App.css";
 import { useState } from "react";
 import { MuiThemeProvider, createTheme } from "@material-ui/core/styles";
 import LeftBar from "./components/Leftbar";
+import Contex from "./context/TryContext";
 
 export default function App() {
   const [toggleDark, settoggleDark] = useState(false);

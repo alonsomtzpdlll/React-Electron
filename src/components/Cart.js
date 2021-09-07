@@ -22,6 +22,7 @@ const Cart = ({ toBuy, setToBuy,total,setTotal }) => {
   const classes = useStyles();
   const [cant,setCant]=useState(0);
   const [open, setOpen] = useState(false);
+
   const [symbolsArr] = useState(["e", "E", "+", "-", "."]);
   const columns = [
     { field: "name", headerName: "Nombre", width: 130 },
@@ -42,7 +43,7 @@ const Cart = ({ toBuy, setToBuy,total,setTotal }) => {
               toBuy = toBuy.filter((value) => value.id !== params.row.id);
               setToBuy(toBuy);
               setTotal(total-params.row.price)
-              
+              console.log(toBuy)
             }}
           >
             Quitar
@@ -137,7 +138,8 @@ const Cart = ({ toBuy, setToBuy,total,setTotal }) => {
                     onClick={() => {
                       setToBuy([]);
                       setOpen(true);
-                      setTotal(0)
+                      setTotal(0);
+                      localStorage.clear();
                     }}
                   >
                     Cancelar

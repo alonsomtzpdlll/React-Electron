@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Repo from "./Repo";
 import { Button, Grid, Paper, InputBase } from "@material-ui/core";
-import CardT from "./CardT";
 import Tabletem from "./Tabletem";
 import NotifySuc from "../modals/NotifySuc";
 import ModalAddProd from "../modals/ModalAddProd";
@@ -20,9 +19,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Prod = ({ toBuy, setToBuy, total, setTotal }) => {
+const Prod = ({ toBuy, setToBuy, total,copy, setCopy ,setTotal }) => {
   const classes = useStyles();
-  const [symbolsArr] = useState(["e", "E", "+", "-", "."]);
 
   const [add, setadd] = useState(false);
   const columns = [
@@ -40,7 +38,8 @@ const Prod = ({ toBuy, setToBuy, total, setTotal }) => {
             size="small"
             color="primary"
             onClick={() => {
-              setToBuy([...toBuy, params.row]);
+              setToBuy(toBuy=>[...toBuy,params.row]);
+              setCopy(copy=true);
               setOpen(true);
               setTotal(total + parseFloat(params.row.price));
             }}

@@ -6,6 +6,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import CardT from '../components/CardT';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -14,8 +15,8 @@ function TabPanel(props) {
       <div
         role="tabpanel"
         hidden={value !== index}
-        id={`simple-tabpanel-${index}`}
-        aria-labelledby={`simple-tab-${index}`}
+        id={`scrollable-auto-tabpanel-${index}`}
+        aria-labelledby={`scrollable-auto-tab-${index}`}
         {...other}
       >
         {value === index && (
@@ -35,8 +36,8 @@ function TabPanel(props) {
   
   function a11yProps(index) {
     return {
-      id: `simple-tab-${index}`,
-      'aria-controls': `simple-tabpanel-${index}`,
+      id: `scrollable-auto-tab-${index}`,
+      'aria-controls': `scrollable-auto-tabpanel-${index}`,
     };
   }
   
@@ -44,10 +45,13 @@ function TabPanel(props) {
     root: {
       flexGrow: 1,
       backgroundColor: theme.palette.background.paper,
+      maxWidth: 1300
     },indicator: {
-      
       height: "5px",
-    },
+    },flexContainerVertical: {
+      display: "flex",
+      alignItems: "center", 
+    }
   }));
   
   export default function Repo({sect}) {
@@ -60,9 +64,10 @@ function TabPanel(props) {
     };
   
     return (
+      
       <div className={classes.root}>
         <AppBar position="static" color="inhert" >
-          <Tabs value={value} variant="scrollable" classes={{indicator: classes.indicator}}onChange={handleChange} aria-label="simple tabs example">
+          <Tabs value={value} variant="scrollable" scrollButtons="on" classes={{indicator: classes.indicator,flexContainerVertical: classes.flexContainerVertical }} onChange={handleChange} aria-label="simple tabs example">
             {sect.map((item,index) => {
               const {seccion} = item;
               
