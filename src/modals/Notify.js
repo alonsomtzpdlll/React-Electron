@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function NotifySuc({sta,handl,msg}) {
+export default function Notify({sta,handl,msg,type}) {
   const classes = useStyles();
   
   const handleClose = (event, reason) => {
@@ -30,8 +30,8 @@ export default function NotifySuc({sta,handl,msg}) {
   return (
     <div className={classes.root}>
       <Snackbar open={sta} autoHideDuration={900} onClose={handleClose}>
-        <Alert onClose={handleClose} severity="success">
-          {msg}
+        <Alert onClose={handleClose} severity={type}>
+            {msg}
         </Alert>
       </Snackbar>
     </div>

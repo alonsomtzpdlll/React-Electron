@@ -44,7 +44,7 @@ const Reports = () =>{
    return(
         <div>
         <Titulos titulo="Reportes"/>
-        <CardT t={
+        <CardT t1={
             <Repo sect={sections} />
         }/>
         </div>

@@ -4,7 +4,6 @@ import { Typography,Grid,TextField } from '@material-ui/core';
 import CardT from '../components/CardT';
 import { makeStyles } from '@material-ui/core/styles';
 import ChartLi from '../components/ChartLi';
-import Tabletem from '../components/Tabletem';
 const useStyles = makeStyles((theme) => ({
   textField: {
     marginLeft: theme.spacing(1),

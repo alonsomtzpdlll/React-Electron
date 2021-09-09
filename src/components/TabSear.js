@@ -4,7 +4,6 @@ import IconButton from '@material-ui/core/IconButton';
 import TextField from '@material-ui/core/TextField';
 import {
   DataGrid,
-  GridToolbarDensitySelector,
   GridToolbarFilterButton,
   GridToolbarExport
 } from '@mui/x-data-grid';
@@ -113,13 +112,13 @@ export default function TabSear({data,columns}) {
         disableSelectionOnClick
         density="compact"
         columns={columns}
-        
         componentsProps={{
           toolbar: {
             value: searchText,
             onChange: (event) => requestSearch(event.target.value),
             clearSearch: () => requestSearch(''),
           },
+          backgroundColor:"#00000"
         }}
       />
     </div>

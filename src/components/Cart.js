@@ -1,27 +1,14 @@
 import { useState } from "react";
 import CardT from "./CardT";
-import { InputBase, Grid, Typography, Button, Paper } from "@material-ui/core";
-import NotifyErr from "../modals/NotifyErr";
+import { Grid, Typography, Button } from "@material-ui/core";
+import Notify from "../modals/Notify";
 import Tabletem from "./Tabletem";
-import { makeStyles } from "@material-ui/styles";
+import Barscode from "./Barscode";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    padding: "2px 18px",
-    display: "flex",
-    alignItems: "center",
-    width: 400,
-  },
-  focused: {
-    borderColor: "2px solid green",
-    borderWidth: 8,
-  },
-}));
-
-const Cart = ({ toBuy, setToBuy,total,setTotal }) => {
-  const classes = useStyles();
+const Cart = ({ prod,toBuy, setToBuy,total,setTotal }) => {
   const [cant,setCant]=useState(0);
   const [open, setOpen] = useState(false);
+  const [open1, setOpen1] = useState(false);
 
   const [symbolsArr] = useState(["e", "E", "+", "-", "."]);
   const columns = [
@@ -43,7 +30,7 @@ const Cart = ({ toBuy, setToBuy,total,setTotal }) => {
               toBuy = toBuy.filter((value) => value.id !== params.row.id);
               setToBuy(toBuy);
               setTotal(total-params.row.price)
-              console.log(toBuy)
+              setOpen1(true);
             }}
           >
             Quitar
@@ -79,9 +66,7 @@ const Cart = ({ toBuy, setToBuy,total,setTotal }) => {
                   <Typography variant="h6">Ticket</Typography>
                   </Grid>
                   <Grid item xs={10}>
-                    <Paper component="form" className={classes.root}>
-                      <InputBase classes={{ root: classes.root, focused: classes.focused,}} placeholder="Codigo de Barras"/>
-                    </Paper>
+                    <Barscode  toBuy={toBuy} setToBuy={setToBuy} prod={prod}/>
                   </Grid>
                   <Grid item xs={12}>
                     <div style={{ height: 300, width: "100%" }}>
@@ -150,7 +135,8 @@ const Cart = ({ toBuy, setToBuy,total,setTotal }) => {
           </Grid>
         </Grid>
       </Grid>
-      <NotifyErr sta={open} handl={setOpen} msg={"Carrito limpio"} />
+      <Notify sta={open} handl={setOpen} msg={"Carrito limpio"} type={"error"} />
+      <Notify sta={open1} handl={setOpen1} msg={"Producto elimando"} type={"error"} />
     </>
   );
 };

@@ -1,14 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItem from "@material-ui/core/ListItem";
-import List from "@material-ui/core/List";
-import Typography from "@material-ui/core/Typography";
+import {AppBar,Toolbar,IconButton,List,ListItem,ListItemText,Typography,Divider} from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
-import Divider from "@material-ui/core/Divider";
 import Lavadora from "../icons/lavadora.svg";
 import Secadora from "../icons/secadora.svg";
 import Modalsty from "../components/Modalsty";

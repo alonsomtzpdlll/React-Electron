@@ -10,7 +10,6 @@ export default function Tabletem({data,columns,flag}) {
         pagination
         columns={columns}
         disableSelectionOnClick
-        rowsPerPageOptions={[10]}
         rows={data}
         />
     </div>

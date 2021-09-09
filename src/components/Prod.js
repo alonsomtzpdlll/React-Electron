@@ -2,9 +2,10 @@ import { useState } from "react";
 import Repo from "./Repo";
 import { Button, Grid, Paper, InputBase } from "@material-ui/core";
 import Tabletem from "./Tabletem";
-import NotifySuc from "../modals/NotifySuc";
+import Notify from "../modals/Notify";
 import ModalAddProd from "../modals/ModalAddProd";
 import { makeStyles } from "@material-ui/styles";
+import SearchIcon from "@material-ui/icons/Search";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Prod = ({ toBuy, setToBuy, total,copy, setCopy ,setTotal }) => {
+const Prod = ({inventary, toBuy, setToBuy, total,copy, setCopy ,setTotal }) => {
   const classes = useStyles();
 
   const [add, setadd] = useState(false);
@@ -52,98 +53,7 @@ const Prod = ({ toBuy, setToBuy, total,copy, setCopy ,setTotal }) => {
     },
   ];
 
-  let inventary = {
-    Lavanderia: {
-      Products: [
-        {
-          id: 1,
-          code: 2345,
-          name: "1kg de ropa",
-          price: 20,
-          action: "Buy",
-        },
-        {
-          id: 2,
-          code: 1234,
-          name: "200kg de ropa",
-          price: 200,
-          action: "Buy",
-        },
-        {
-          id: 3,
-          code: 1234,
-          name: "20kg de ropa",
-          price: 500,
-          action: "Buy",
-        },
-        {
-          id: 4,
-          code: 1234,
-          name: "3kg de ropa",
-          price: 400,
-          action: "Buy",
-        },
-        {
-          id: 5,
-          code: 1234,
-          name: "10kg de ropa",
-          price: 400,
-          action: "Buy",
-        },
-        {
-          id: 11,
-          code: 1234,
-          name: "30kg de ropa",
-          price: 400,
-          action: "Buy",
-        },
-        {
-          id: 23,
-          code: 1234,
-          name: "220kg de ropa",
-          price: 400,
-          action: "Buy",
-        },
-      ],
-    },
-    Limpieza: {
-      Products: [
-        {
-          id: 6,
-          code: 2345,
-          name: "Jabón",
-          price: 20,
-          action: "Buy",
-        },
-        {
-          id: 7,
-          code: 1234,
-          name: "Detergente",
-          price: 200,
-          action: "Buy",
-        },
-      ],
-    },
-    Jabon: {
-      Products: [
-        {
-          id: 8,
-          code: 2345,
-          name: "Suavizante",
-          price: 20,
-          action: "Buy",
-        },
-        {
-          id: 9,
-          code: 1234,
-          name: "Cloro",
-          price: 200,
-          action: "Buy",
-        },
-      ],
-    },
-  };
-
+ 
   let sections = Object.keys(inventary);
   var arrObj = [];
 
@@ -158,6 +68,7 @@ const Prod = ({ toBuy, setToBuy, total,copy, setCopy ,setTotal }) => {
         <Grid item xs={12}>
           {" "}
           <Paper component="form" className={classes.root}>
+          <SearchIcon fontSize="small" />
             <InputBase
               classes={{ root: classes.root, focused: classes.focused }}
               placeholder="Buscar"
@@ -200,7 +111,7 @@ const Prod = ({ toBuy, setToBuy, total,copy, setCopy ,setTotal }) => {
       </Grid>
 
       <ModalAddProd sta={add} handler={setadd} />
-      <NotifySuc sta={open} handl={setOpen} msg={"Product added"} />
+      <Notify sta={open} handl={setOpen} msg={"Product added"} type={"success"} />
     </>
   );
 };

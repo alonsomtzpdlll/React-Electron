@@ -8,7 +8,6 @@ const DTabl = ({columns,rows}) => {
       <DataGrid
         rows={rows}
         columns={columns}
-        pageSize={5}
         disableSelectionOnClick 
       />
     </div>

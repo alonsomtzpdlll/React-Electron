@@ -1,22 +1,10 @@
 import React, { useState } from "react";
 import clsx from "clsx";
 import { useTheme } from "@material-ui/core/styles";
-import {
-  CssBaseline,
-  Button,
-  AppBar,
-  Toolbar,
-  ListItem,
-  Drawer,
-  IconButton,
-  List,
-  Divider,
-  Box,
-  Switch as Swit,
-  FormControlLabel,
-  FormGroup,
-} from "@material-ui/core";
+import {CssBaseline,Button,AppBar,Toolbar,ListItem,Drawer,IconButton,List,Divider,Box,Switch as Swit,FormControlLabel,FormGroup} from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
+import Brightness5Icon from '@material-ui/icons/Brightness5';
+import Brightness2Icon from '@material-ui/icons/Brightness2';
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import { Route, Switch, withRouter } from "react-router-dom";
@@ -35,7 +23,8 @@ import Tickico from '../icons/ticket.svg';
 import Cargtico from '../icons/carga-trabajo.svg';
 import adminico from '../icons/administracion.svg';
 import Controlcenter from "../modals/Controlcenter";
-
+import SettingsIcon from '@material-ui/icons/Settings';
+import Config from "../modals/Config";
 
 const LeftBar = (props) => {
   const { history } = props;
@@ -43,6 +32,7 @@ const LeftBar = (props) => {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const [ctrlMod, setctrlMod] = useState(false);
+  const [conf,setConf]=useState(false);
 
   let sections = [
     {
@@ -118,7 +108,6 @@ const LeftBar = (props) => {
             <img src={logo} alt="Logo Inovuc" height="60"/>
           </Box>
           <FormGroup>
-            
             <FormControlLabel
               control={
                 <Swit
@@ -127,7 +116,7 @@ const LeftBar = (props) => {
                   onChange={toggleChecked}
                 />
               }
-              label="Dark"
+              label={(props.toggleDark===true)?<Brightness2Icon fontSize="small" />:<Brightness5Icon fontSize="small"/>}
             />
           </FormGroup>
           <Button variant="contained" color="primary" onClick={ctrlOpen}>
@@ -152,8 +141,9 @@ const LeftBar = (props) => {
               <ChevronRightIcon />
             )}
           </IconButton>
+          <IconButton onClick={()=>setConf(true)}><SettingsIcon/></IconButton>
         </div>
-
+        
         <List>
           {sections.map((item, key) => {
             const { Title, onClick,icon } = item;
@@ -206,10 +196,8 @@ const LeftBar = (props) => {
             )}
           />
         </Switch>
-
+        <Config state={conf} Hand={setConf}/>
         <Controlcenter sta={ctrlMod} handler={setctrlMod}/>
-        
-
       </main>
     </div>
   );

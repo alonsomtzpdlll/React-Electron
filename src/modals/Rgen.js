@@ -42,7 +42,7 @@ export default function Rgen() {
         <Grid container direction="column" justifyContent="space-between">
 
           <Grid style={{paddingBottom:10}} item>
-          <CardT t={
+          <CardT t1={
           <>
           <Typography variant="subtitle1">Por dia</Typography>
           <form className={classes.container} noValidate>
@@ -71,7 +71,7 @@ export default function Rgen() {
     </Grid>
 
     <Grid item>
-      <CardT t={
+      <CardT t1={
         <>
         <Typography variant="subtitle1">Global</Typography>
         <form className={classes.container} noValidate>
