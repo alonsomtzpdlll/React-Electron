@@ -5,6 +5,7 @@ import Titulos from "../components/Titulos";
 import { makeStyles } from "@material-ui/core/styles";
 import Movimientoscajach from "../modals/Movimientoscajach";
 import CorteCajaDia from "../modals/CorteCajaDia";
+import AssessmentIcon from '@material-ui/icons/Assessment';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,8 +18,16 @@ const useStyles = makeStyles((theme) => ({
 const Caja = () => {
   const [cach, setcach] = useState(false);
   const [CaDi, setCaDi] = useState(false);
+  const [Cach,setCach] = useState(0);
+  const [final,setFinal]=useState(0);
+  const [finalM,setFinalM]=useState(0);
+  const [status,setStatus]=useState(0)
   const classes = useStyles();
-
+  
+  const containvaluesy=(value)=>{
+    console.log(parseFloat(value))
+    setCach(Cach=>parseFloat(value))
+  };
   const [act, setact] = useState(0);
   return (
     <>
@@ -42,19 +51,21 @@ const Caja = () => {
                     <TextField
                       htmlFor="standard-adornment-amount"
                       size="small"
-                      id="outlined-basic"
                       label="$"
+                      value={status}
                       variant="outlined"
+                      on
+                      onChange={(event)=>{setStatus(event.target.value);containvaluesy(event.target.value)}}
                       style={{ width: 100 }}
                     />
                   </Grid>
                   <Grid item>
                     <Button
                       variant="contained"
-                      style={{ backgroundColor: "#5cb85c" }}
-                    >
+                      style={{ backgroundColor: "#5cb85c",color: "white", }}
+                      onClick={()=>{setFinal(Cach+final);setStatus(0)}}>
                       +
-                    </Button>{" "}
+                    </Button>
                   </Grid>
                 </Grid>
               </>
@@ -96,7 +107,7 @@ const Caja = () => {
                       </Grid>
                       <Grid item>
                         {" "}
-                        <Button variant="contained" style={{ backgroundColor: "#d9534f" }}>
+                        <Button variant="contained" style={{ backgroundColor: "#d9534f",color: "white", }}>
                           -
                         </Button>
                       </Grid>
@@ -109,6 +120,7 @@ const Caja = () => {
                       onClick={() => setcach(true)}
                       color="primary"
                     >
+                      <AssessmentIcon fontSize="small"/>
                       Ver a detalle
                     </Button>
                     <Movimientoscajach sta={cach} handler={setcach} />
@@ -142,7 +154,7 @@ const Caja = () => {
                       Dinero en Caja
                     </Typography>
                     <div className={classes.root}>
-                      {act === 0 ? "$0." : (`$`, act)}
+                      {final === 0 ? "$0." : ('$'+ final)}
                     </div>
                   </Grid>
                   <Grid item xs={12}>
@@ -171,15 +183,15 @@ const Caja = () => {
                     <Button
                       variant="contained"
                       onClick={() => setCaDi(true)}
-                      color="primary"
-                    >
+                      color="primary">
+                         <AssessmentIcon fontSize="small"/>
                       Detalle
                     </Button>
                     <CorteCajaDia sta={CaDi} handler={setCaDi} />
                     <Button
                       variant="contained"
-                      style={{ backgroundColor: "#5cb85c" }}
-                    >
+                      style={{ backgroundColor: "#5cb85c",color: "white", }}
+                      onClick={()=>{setFinalM(finalM+final);setFinal(0)}}>
                       Cierre
                     </Button>
                   </Grid>
@@ -207,7 +219,7 @@ const Caja = () => {
                       Dinero en Caja
                     </Typography>
                     <div className={classes.root}>
-                      {act === 0 ? "$0." : (`$`, act)}
+                      {finalM === 0 ? "$0." : (`$`+finalM)}
                     </div>
                   </Grid>
                   <Grid item xs={12}>
@@ -231,19 +243,17 @@ const Caja = () => {
                     direction="row"
                     justifyContent="space-evenly"
                     alignItems="center"
-                    item
-                  >
+                    item>
                     <Button
                       variant="contained"
                       onClick={() => setact(act + 1)}
-                      color="primary"
-                    >
+                      color="primary">
+                         <AssessmentIcon fontSize="small"/>
                       Detalle
                     </Button>
                     <Button
                       variant="contained"
-                      style={{ backgroundColor: "#5cb85c" }}
-                    >
+                      style={{ backgroundColor: "#5cb85c",color: "white", }}>
                       Cierre
                     </Button>
                   </Grid>

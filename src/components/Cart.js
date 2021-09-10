@@ -4,6 +4,8 @@ import { Grid, Typography, Button } from "@material-ui/core";
 import Notify from "../modals/Notify";
 import Tabletem from "./Tabletem";
 import Barscode from "./Barscode";
+import CancelIcon from '@material-ui/icons/Cancel';
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 
 const Cart = ({ prod,toBuy, setToBuy,total,setTotal }) => {
   const [cant,setCant]=useState(0);
@@ -24,15 +26,14 @@ const Cart = ({ prod,toBuy, setToBuy,total,setTotal }) => {
           <Grid item>
           <Button
             variant="contained"
-            size="small"
+            size="small"  
             color="primary"
             onClick={() => {
               toBuy = toBuy.filter((value) => value.id !== params.row.id);
               setToBuy(toBuy);
               setTotal(total-params.row.price)
               setOpen1(true);
-            }}
-          >
+            }}>
             Quitar
           </Button>
           </Grid>
@@ -66,7 +67,7 @@ const Cart = ({ prod,toBuy, setToBuy,total,setTotal }) => {
                   <Typography variant="h6">Ticket</Typography>
                   </Grid>
                   <Grid item xs={10}>
-                    <Barscode  toBuy={toBuy} setToBuy={setToBuy} prod={prod}/>
+                    <Barscode  toBuy={toBuy} total={total} setTotal={setTotal} setToBuy={setToBuy} prod={prod}/>
                   </Grid>
                   <Grid item xs={12}>
                     <div style={{ height: 300, width: "100%" }}>
@@ -109,9 +110,9 @@ const Cart = ({ prod,toBuy, setToBuy,total,setTotal }) => {
                   <Button
                     size="small"
                     variant="contained"
-                    style={{ backgroundColor: "#5cb85c" }}
-                    onClick={() => setToBuy([])}
-                  >
+                    style={{ backgroundColor: "#5cb85c",color: "white", }}
+                    onClick={() => setToBuy([])}>
+                      <AttachMoneyIcon fontSize="small"/>
                     Cobrar
                   </Button>
                 </Grid>
@@ -119,7 +120,7 @@ const Cart = ({ prod,toBuy, setToBuy,total,setTotal }) => {
                   <Button
                     size="small"
                     variant="contained"
-                    style={{ backgroundColor: "#d9534f" }}
+                    style={{ backgroundColor: "#d9534f",color: "white", }}
                     onClick={() => {
                       setToBuy([]);
                       setOpen(true);
@@ -127,6 +128,7 @@ const Cart = ({ prod,toBuy, setToBuy,total,setTotal }) => {
                       localStorage.clear();
                     }}
                   >
+                    <CancelIcon fontSize="small"/>
                     Cancelar
                   </Button>
                 </Grid>

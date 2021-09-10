@@ -18,15 +18,15 @@ const useStyles = makeStyles((theme) => ({
   }));
 
  
-const Barscode = ({prod,toBuy,setToBuy}) => {
+const Barscode = ({prod,toBuy,setToBuy,total,setTotal}) => {
     const classes = useStyles();
     const [status,setStatus] = useState("");
     let sections = Object.keys(prod);
     let all = (value)=>{
         for (var i =0; i<=sections.length-1;i++){
             for (const item of Object.entries(prod[sections[i]]["Products"])) {
-                   if (item[1].code==value)
-                   {
+                   if (item[1].code==value){
+                       setTotal(total+item[1].price)
                        setToBuy([...toBuy,item[1]]);
                        setStatus("");
                     }

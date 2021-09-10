@@ -118,7 +118,7 @@ export default function TabSear({data,columns}) {
             onChange: (event) => requestSearch(event.target.value),
             clearSearch: () => requestSearch(''),
           },
-          backgroundColor:"#00000"
+
         }}
       />
     </div>

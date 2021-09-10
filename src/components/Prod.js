@@ -3,9 +3,10 @@ import Repo from "./Repo";
 import { Button, Grid, Paper, InputBase } from "@material-ui/core";
 import Tabletem from "./Tabletem";
 import Notify from "../modals/Notify";
-import ModalAddProd from "../modals/ModalAddProd";
 import { makeStyles } from "@material-ui/styles";
 import SearchIcon from "@material-ui/icons/Search";
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import AddProd from "../modals/AddProd";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Prod = ({inventary, toBuy, setToBuy, total,copy, setCopy ,setTotal }) => {
   const classes = useStyles();
-
   const [add, setadd] = useState(false);
   const columns = [
     { field: "id", headerName: "id", hide: true },
@@ -45,7 +45,7 @@ const Prod = ({inventary, toBuy, setToBuy, total,copy, setCopy ,setTotal }) => {
               setTotal(total + parseFloat(params.row.price));
             }}
           >
-            Agregar
+           Agregar
           </Button>
          
         );
@@ -64,27 +64,24 @@ const Prod = ({inventary, toBuy, setToBuy, total,copy, setCopy ,setTotal }) => {
     obj["seccion"] = element;
     var ob2 = (
       <Grid container spacing={1}>
-        {" "}
+        
         <Grid item xs={12}>
-          {" "}
+          
           <Paper component="form" className={classes.root}>
           <SearchIcon fontSize="small" />
             <InputBase
               classes={{ root: classes.root, focused: classes.focused }}
               placeholder="Buscar"
             />
-          </Paper>{" "}
-        </Grid>{" "}
+          </Paper>
+        </Grid>
         <Grid item xs={12}>
-          {" "}
           <div style={{ height: 300, width: "100%" }}>
-            {" "}
             <Tabletem
               data={inventary[sections[index]].Products}
-              columns={columns}
-            />{" "}
-          </div>{" "}
-        </Grid>{" "}
+              columns={columns}/>
+          </div>
+        </Grid>
       </Grid>
     );
     obj["router"] = ob2;
@@ -94,7 +91,7 @@ const Prod = ({inventary, toBuy, setToBuy, total,copy, setCopy ,setTotal }) => {
 
   return (
     <>
-      <Grid container direction="column" spacing={1}>
+      <Grid container direction="row" spacing={1}>
         <Grid item xs={12}>
           <Repo sect={arrObj} />
         </Grid>
@@ -103,14 +100,23 @@ const Prod = ({inventary, toBuy, setToBuy, total,copy, setCopy ,setTotal }) => {
             variant="contained"
             size="small"
             onClick={() => setadd(true)}
-            color="primary"
-          >
+            color="primary" >
             Agregar Producto
           </Button>
         </Grid>
+        <Grid item>
+          <Button
+            variant="contained"
+            size="small"
+            onClick={() => setadd(true)}
+            color="primary">
+              <PersonAddIcon fontSize="small"/>
+            Registrar Cliente
+          </Button>
+        </Grid>
       </Grid>
-
-      <ModalAddProd sta={add} handler={setadd} />
+      
+      <AddProd state={add} Hand={setadd} />
       <Notify sta={open} handl={setOpen} msg={"Product added"} type={"success"} />
     </>
   );

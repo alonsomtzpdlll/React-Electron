@@ -3,7 +3,14 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import CardT from "../components/CardT";
 import TextField from "@material-ui/core/TextField";
-import { Typography, Grid, Select, MenuItem } from "@material-ui/core";
+import {
+  Typography,
+  Grid,
+  Select,
+  MenuItem,
+  InputLabel,
+  FormControl,
+} from "@material-ui/core";
 import Chart from "../components/ChartLi";
 
 const useStyles = makeStyles((theme) => ({
@@ -17,8 +24,8 @@ const useStyles = makeStyles((theme) => ({
     width: 200,
   },
   formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
+    margin: theme.spacing(0),
+    minWidth: 200,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -37,117 +44,136 @@ export default function Rgen() {
     <>
       <Subti text="General" />
       <Grid container spacing={2}>
+        <Grid item xs={3}>
+          <Grid container direction="column" justifyContent="space-between">
+            <Grid style={{ paddingBottom: 10 }} item>
+              <CardT
+                t1={
+                  <>
+                    <Typography variant="subtitle1">Por dia</Typography>
+                    <TextField
+                      id="date"
+                      type="date"
+                      defaultValue="2017-05-24"
+                      className={classes.textField}
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                    />
 
-      <Grid item xs={3}>
-        <Grid container direction="column" justifyContent="space-between">
+                    <FormControl
+                      className={classes.formControl}
+                    >
+                      <InputLabel id="demo-simple-select-outlined-label">
+                        Seleccione opcion
+                      </InputLabel>
+                      <Select
+                        labelId="demo-simple-select-outlined-label"
+                        id="demo-simple-select-outlined"
+                        value={age}
+                        onChange={handleChange}
+                        label="Age"
+                      >
+                        <MenuItem value={10}>Ventas</MenuItem>
+                        <MenuItem value={20}>Ingresos</MenuItem>
+                        <MenuItem value={30}>Tickets Generados</MenuItem>
+                        <MenuItem value={30}>Ordenes Pendientes</MenuItem>
+                        <MenuItem value={30}>Ordenes Pagadas</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </>
+                }
+              />
+            </Grid>
 
-          <Grid style={{paddingBottom:10}} item>
-          <CardT t1={
-          <>
-          <Typography variant="subtitle1">Por dia</Typography>
-          <form className={classes.container} noValidate>
-            <TextField
-              id="date"
-              type="date"
-              defaultValue="2017-05-24"
-              className={classes.textField}
-              InputLabelProps={{
-                shrink: true,
-              }}/>
+            <Grid item>
+              <CardT
+                t1={
+                  <>
+                    <Typography variant="subtitle1">Global</Typography>
+                    <FormControl
+                      className={classes.formControl}
+                    >
+                      <InputLabel id="demo-simple-select-outlined-label">
+                        Comparar entre 
+                      </InputLabel>
+                      <Select
+                        labelId="demo-simple-select-outlined-label"
+                        id="demo-simple-select-outlined"
+                        value={age}
+                        onChange={handleChange}
+                        label="Age"
+                      >
+                        <MenuItem value={10}>Mes</MenuItem>
+                        <MenuItem value={20}>Bimestre</MenuItem>
+                        <MenuItem value={30}>Trimestre</MenuItem>
+                        <MenuItem value={30}>Semestre</MenuItem>
+                        <MenuItem value={30}>Año</MenuItem>
+                      </Select>
+                    </FormControl>
 
-          <Select
-            style={{ width: '100%' }}
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={age}
-            onChange={handleChange}>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
-        </form>
-        </>
-      }/>
-    </Grid>
+                    <FormControl
+                      className={classes.formControl}
+                    >
+                    <InputLabel id="demo-simple-select-outlined-label">
+                        Comparar entre 
+                      </InputLabel>
+                      <Select
+                        labelId="demo-simple-select-outlined-label"
+                        id="demo-simple-select-outlined"
+                        value={age}
+                        onChange={handleChange}
+                        label="Age"
+                      >
+                        <MenuItem value={10}>Enero</MenuItem>
+                        <MenuItem value={20}>Febrero</MenuItem>
+                        <MenuItem value={30}>Marzo</MenuItem>
+                        <MenuItem value={30}>Abril</MenuItem>
+                        <MenuItem value={30}>Mayo</MenuItem>
+                      </Select>
+                  </FormControl>
 
-    <Grid item>
-      <CardT t1={
-        <>
-        <Typography variant="subtitle1">Global</Typography>
-        <form className={classes.container} noValidate>
-        <Grid container direction="column">
-          <Select style={{ width: '100%' }} labelId="demo-simple-select-label" id="demo-simple-select" value={age} onChange={handleChange}>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
-          <Select style={{ width: '100%' }} labelId="demo-simple-select-label" id="demo-simple-select" value={age} onChange={handleChange}>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
-          <Select style={{ width: '100%' }} labelId="demo-simple-select-label" id="demo-simple-select" value={age} onChange={handleChange}>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
-          <Select style={{ width: '100%' }} labelId="demo-simple-select-label" id="demo-simple-select" value={age} onChange={handleChange}>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
-          <Select style={{ width: '100%' }} labelId="demo-simple-select-label" id="demo-simple-select" value={age} onChange={handleChange}>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
+                  
+                  </>
+                }
+              />
+            </Grid>
           </Grid>
-        </form>
-        </>
-        }/>
         </Grid>
+
+        <Grid item xs={7}>
+          <CardT t2={<Chart />} />
         </Grid>
-      </Grid>
-
-      <Grid item xs={7}>
-      <CardT t2={<Chart />}/>
-      </Grid>
-
 
         <Grid item xs={2}>
           <CardT
             product="Corte de caja mensual"
             t2={
               <>
-                <Grid container direction="column" justifyContent="center" alignItems="center">
+                <Grid
+                  container
+                  direction="column"
+                  justifyContent="center"
+                  alignItems="center"
+                >
                   <Grid item>
-                    <Typography variant="subtitle1">
-                      Ventas
-                    </Typography>
+                    <Typography variant="subtitle1">Ventas</Typography>
                     <div>{"$0."}</div>
                   </Grid>
                   <Grid item>
-                    <Typography variant="subtitle1">
-                      Dinero Ingreso
-                    </Typography>
+                    <Typography variant="subtitle1">Dinero Ingreso</Typography>
                     <div>{"$0."}</div>
                   </Grid>
                   <Grid item>
-                    <Typography variant="subtitle1">
-                      Tickets
-                    </Typography>
-                    <div>{"$0."}</div>
-                  </Grid>
-                  <Grid item >
-                    <Typography variant="subtitle1">
-                      Pendientes
-                    </Typography>
+                    <Typography variant="subtitle1">Tickets</Typography>
                     <div>{"$0."}</div>
                   </Grid>
                   <Grid item>
-                    <Typography variant="subtitle1">
-                      Pagado 
-                    </Typography>
+                    <Typography variant="subtitle1">Pendientes</Typography>
+                    <div>{"$0."}</div>
+                  </Grid>
+                  <Grid item>
+                    <Typography variant="subtitle1">Pagado</Typography>
                     <div>{"$0."}</div>
                   </Grid>
                 </Grid>
@@ -156,7 +182,6 @@ export default function Rgen() {
           ></CardT>
         </Grid>
       </Grid>
-      
     </>
   );
 }

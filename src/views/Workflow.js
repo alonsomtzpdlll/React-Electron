@@ -4,6 +4,7 @@ import CardT from "../components/CardT";
 import { Grid,Button } from "@material-ui/core";
 import DTabl from "../components/DTabl";
 import Notify from '../modals/Notify';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 
 const Work = () => {
   const [open,setOpen]=useState(false);
@@ -68,7 +69,7 @@ const Work = () => {
               setfin(fint);
               setOpen(true);
             }
-          }} color="primary">Pass</Button>;}
+          }} color="primary"><NavigateNextIcon/></Button>;}
     
     },
   ];
