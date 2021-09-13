@@ -7,6 +7,8 @@ import Contex from '../context/TryContext';
 
 const Punto = () => {
   const [toBuy,setToBuy]=useState([]);
+
+  
   const [total,setTotal]=useState(0);
   const [copy,setCopy]=useState(false);
   console.log(toBuy)
@@ -83,6 +85,7 @@ const Punto = () => {
         },
       ],
     },
+    
     Jabon: {
       Products: [
         {
@@ -110,6 +113,7 @@ const Punto = () => {
     console.log("Storage: ",arr)
     setCopy(false)
   }
+  
   
   return (
     <>

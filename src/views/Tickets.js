@@ -6,7 +6,7 @@ import { Button } from "@material-ui/core";
 import TabSear from '../components/TabSear';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import IconButton from '@material-ui/core/IconButton';
-
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const Tickets = () => {
   const { data } = useDemoData({
@@ -37,7 +37,7 @@ const Tickets = () => {
             size="small"
             color="secondary"
             onClick={()=>console.log(params.row)}>
-            Cancelar
+           <DeleteIcon/>
           </Button>
           <IconButton aria-label="delete">
           <VisibilityIcon />

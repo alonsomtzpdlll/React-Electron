@@ -64,9 +64,7 @@ const Prod = ({inventary, toBuy, setToBuy, total,copy, setCopy ,setTotal }) => {
     obj["seccion"] = element;
     var ob2 = (
       <Grid container spacing={1}>
-        
         <Grid item xs={12}>
-          
           <Paper component="form" className={classes.root}>
           <SearchIcon fontSize="small" />
             <InputBase
@@ -107,8 +105,7 @@ const Prod = ({inventary, toBuy, setToBuy, total,copy, setCopy ,setTotal }) => {
         <Grid item>
           <Button
             variant="contained"
-            size="small"
-            onClick={() => setadd(true)}
+            size="small"b
             color="primary">
               <PersonAddIcon fontSize="small"/>
             Registrar Cliente

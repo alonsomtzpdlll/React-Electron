@@ -84,6 +84,7 @@ useEffect(()=>{
   return(
    <>
       <Titulos titulo="Admin"/>
+      
       <CardT t1={
             <Repo sect={ADMINsections} />
         }/>

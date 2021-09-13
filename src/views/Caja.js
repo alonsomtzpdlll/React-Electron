@@ -18,15 +18,24 @@ const useStyles = makeStyles((theme) => ({
 const Caja = () => {
   const [cach, setcach] = useState(false);
   const [CaDi, setCaDi] = useState(false);
+  const [retDia,setretDia] = useState(0);
   const [Cach,setCach] = useState(0);
   const [final,setFinal]=useState(0);
   const [finalM,setFinalM]=useState(0);
-  const [status,setStatus]=useState(0)
+
+  //Values of text Fields of "Caja Chica"
+  const [status,setStatus]=useState(0);
+  const [status1,setStatus1]=useState(0);
   const classes = useStyles();
   
-  const containvaluesy=(value)=>{
+  const getvalueT=(value)=>{
     console.log(parseFloat(value))
     setCach(Cach=>parseFloat(value))
+  };
+
+  const getvalueTR=(value)=>{
+    console.log(parseFloat(value))
+    setretDia(retDia=>parseFloat(value))
   };
   const [act, setact] = useState(0);
   return (
@@ -45,8 +54,7 @@ const Caja = () => {
                   container
                   justifyContent="center"
                   alignContent="flex-start"
-                  spacing={1}
-                >
+                  spacing={1}>
                   <Grid item>
                     <TextField
                       htmlFor="standard-adornment-amount"
@@ -54,8 +62,7 @@ const Caja = () => {
                       label="$"
                       value={status}
                       variant="outlined"
-                      on
-                      onChange={(event)=>{setStatus(event.target.value);containvaluesy(event.target.value)}}
+                      onChange={(event)=>{setStatus(event.target.value);getvalueT(event.target.value)}}
                       style={{ width: 100 }}
                     />
                   </Grid>
@@ -76,8 +83,7 @@ const Caja = () => {
                   container
                   direction="column"
                   justifyContent="center"
-                  alignItems="center"
-                >
+                  alignItems="center">
                   <Grid item>
                     <Typography variant="subtitle1" gutterBottom>
                       Salida de Caja chica
@@ -96,18 +102,19 @@ const Caja = () => {
                   <Grid style={{ padding: 10 }} item>
                     <Grid container spacing={1}>
                       <Grid item>
-                        {" "}
                         <TextField
                           id="outlined-basic"
                           label="$"
                           size="small"
                           variant="outlined"
                           style={{ width: 100 }}
-                        />
+                          value={status1}
+                          onChange={(event)=>{setStatus1(event.target.value);getvalueTR(event.target.value)}}
+                          />
                       </Grid>
                       <Grid item>
-                        {" "}
-                        <Button variant="contained" style={{ backgroundColor: "#d9534f",color: "white", }}>
+                        <Button variant="contained" style={{ backgroundColor: "#d9534f",color: "white", }}
+                        onClick={()=>{setFinal(final-retDia);setStatus1(0);}}>
                           -
                         </Button>
                       </Grid>
@@ -178,8 +185,7 @@ const Caja = () => {
                     direction="row"
                     justifyContent="space-evenly"
                     alignItems="center"
-                    item
-                  >
+                    item>
                     <Button
                       variant="contained"
                       onClick={() => setCaDi(true)}
