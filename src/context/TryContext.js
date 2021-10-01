@@ -1,7 +1,7 @@
 import React from "react";
 
 const Contex = React.createContext ({
-    val1:"Hola"
+    Type:"Premium"
 });
 
 export default Contex;

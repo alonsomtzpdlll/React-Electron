@@ -3,13 +3,12 @@ import {Grid} from "@material-ui/core";
 import Product from "../components/Product";
 import Titulos from "../components/Titulos";
 import Cart from '../components/Cart';
-import Contex from '../context/TryContext';
+import PersistentHook from "../hooks/LocalPersistent";
 
 const Punto = () => {
-  const [toBuy,setToBuy]=useState([]);
+  const [toBuy,setToBuy]=PersistentHook("ToBuy",[]);
 
-  
-  const [total,setTotal]=useState(0);
+  const [total,setTotal]=PersistentHook("Total",0);
   const [copy,setCopy]=useState(false);
   console.log(toBuy)
   
@@ -106,15 +105,6 @@ const Punto = () => {
     },
   };
 
-  if(copy===true){
-    localStorage.setItem=('cart',JSON.stringify(toBuy))
-    var arr = localStorage.getItem('cart');
-    arr=JSON.parse(arr);
-    console.log("Storage: ",arr)
-    setCopy(false)
-  }
-  
-  
   return (
     <>
       <Titulos titulo="Punto de Venta" />

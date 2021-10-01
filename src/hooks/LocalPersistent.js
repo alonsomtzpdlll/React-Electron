@@ -1,10 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-function PersistentHook(defaultValue, key) {
+function PersistentHook(key, value) {
   const [array, setArray] = useState(() => {
     const stickyValues = localStorage.getItem(key);
-
-    return stickyValues !== null ? JSON.parse(stickyValues) : defaultValue;
+    return stickyValues !== null ? JSON.parse(stickyValues) : value;
   });
 
   useEffect(() => {

@@ -25,8 +25,7 @@ const ModalAddProd = ({sta, handler}) =>{
                     edge="start"
                     onClick={() => handler(false)}
                     color="inherit"
-                    aria-label="close"
-                  >
+                    aria-label="close">
                     <CloseIcon />
                   </IconButton>
                   <Typography variant="subtitle1" className={classes.title}>
